@@ -2,7 +2,7 @@
 background = #102010
 foreground = #33ff33
 cursor-color = #33ff33
-theme = Retro Legends
+theme = GitHub Dark Dimmed
 
 # Aesthetic Settings
 custom-shader = ~/.config/ghostty/shaders/custom-glitchy.glsl
@@ -13,3 +13,6 @@ font-size = 14
 font-feature = -liga
 window-width = 200
 window-height = 60
+
+cursor-style = block
+shell-integration-features = no-cursor
