@@ -11,6 +11,7 @@ macos-non-native-fullscreen = true
 theme = GitHub Dark Dimmed
 
 cursor-color = #33ff33
+cursor-text = #102010
 cursor-style = block
 shell-integration-features = no-cursor
 
