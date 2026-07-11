@@ -1,0 +1,15 @@
+# Theme Colors
+background = #102010
+foreground = #33ff33
+cursor-color = #33ff33
+theme = Retro Legends
+
+# Aesthetic Settings
+custom-shader = ~/.config/ghostty/shaders/custom-glitchy.glsl
+
+# Font and Window Settings
+font-family = "0xProto Nerd Font Mono"
+font-size = 14
+font-feature = -liga
+window-width = 200
+window-height = 60
