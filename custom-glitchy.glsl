@@ -113,6 +113,12 @@ const float GLITCH_INTENSITY = 0.7;
 // text shinier/bloomier, decrease (e.g. 0.5) to tone it down, 0.0 disables it.
 const float GLOW_INTENSITY = 0.7;
 
+// Pixel-grid overlay: darkens a thin line every GRID_SIZE pixels to fake a
+// tiny visible pixel grid, like an old low-res display.
+const float GRID_SIZE = 4.0;      // pixels per grid cell
+const float GRID_LINE_WIDTH = 1.0; // pixels wide for each grid line
+const float GRID_INTENSITY = 0.15; // 0.0 = no grid, 1.0 = fully black lines
+
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
 
@@ -149,4 +155,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     }
 
     fragColor = toRgb(dest);
+
+    vec2 gridPos = mod(fragCoord.xy, GRID_SIZE);
+    float onGridLine = step(gridPos.x, GRID_LINE_WIDTH) + step(gridPos.y, GRID_LINE_WIDTH);
+    fragColor.rgb *= 1.0 - GRID_INTENSITY * min(onGridLine, 1.0);
 }
