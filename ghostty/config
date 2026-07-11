@@ -1,12 +1,3 @@
-# Theme Colors
-background = #102010
-foreground = #33ff33
-cursor-color = #33ff33
-theme = GitHub Dark Dimmed
-
-# Aesthetic Settings
-custom-shader = ~/.config/ghostty/shaders/custom-glitchy.glsl
-
 # Font and Window Settings
 font-family = "0xProto Nerd Font Mono"
 font-size = 14
@@ -14,5 +5,17 @@ font-feature = -liga
 window-width = 200
 window-height = 60
 
+# Theme Colors
+theme = GitHub Dark Dimmed
+
+cursor-color = #33ff33
 cursor-style = block
 shell-integration-features = no-cursor
+
+background = #102010
+foreground = #33ff33
+selection-background = #336633
+selection-foreground = #f2fff2
+
+# Aesthetic Settings
+custom-shader = ~/.config/ghostty/shaders/custom-glitchy.glsl
