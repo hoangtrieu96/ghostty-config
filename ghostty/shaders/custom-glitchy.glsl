@@ -118,7 +118,18 @@ const float GLOW_INTENSITY = 0.8;
 // tiny visible pixel grid, like an old low-res display.
 const float GRID_SIZE = 4.0;      // pixels per grid cell
 const float GRID_LINE_WIDTH = 1.0; // pixels wide for each grid line
-const float GRID_INTENSITY = 0.15; // 0.0 = no grid, 1.0 = fully black lines
+const float GRID_INTENSITY = 0.0; // 0.0 = no grid, 1.0 = fully black lines
+
+// Flicker: irregular overall brightness pulse, simulating unstable CRT
+// voltage. Uses layered sine waves at incommensurate frequencies so it
+// doesn't feel like a clean, repeating pulse.
+const float FLICKER_INTENSITY = 0.0; // 0.0 = disabled
+
+// RGB subpixel mask: simulates a CRT aperture grille by cycling each pixel
+// column through R/G/B "stripes", dimming the two non-matching channels.
+// SUBPIXEL_SIZE = pixels per stripe (3.0 = one pixel per R/G/B stripe).
+const float SUBPIXEL_SIZE = 3.0;
+const float SUBPIXEL_INTENSITY = 0.15; // 0.0 = disabled, 1.0 = fully isolated channels
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
@@ -160,4 +171,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 gridPos = mod(fragCoord.xy, GRID_SIZE);
     float onGridLine = step(gridPos.x, GRID_LINE_WIDTH) + step(gridPos.y, GRID_LINE_WIDTH);
     fragColor.rgb *= 1.0 - GRID_INTENSITY * min(onGridLine, 1.0);
+
+    float flicker = 1.0 - FLICKER_INTENSITY * (0.5 + 0.5 * sin(iTime * 47.0) * sin(iTime * 13.7));
+    fragColor.rgb *= flicker;
+
+    float subpixelIndex = mod(floor(fragCoord.x / (SUBPIXEL_SIZE / 3.0)), 3.0);
+    vec3 subpixelMask = vec3(1.0 - SUBPIXEL_INTENSITY);
+    if (subpixelIndex < 1.0) subpixelMask.r = 1.0;
+    else if (subpixelIndex < 2.0) subpixelMask.g = 1.0;
+    else subpixelMask.b = 1.0;
+    fragColor.rgb *= subpixelMask;
 }
