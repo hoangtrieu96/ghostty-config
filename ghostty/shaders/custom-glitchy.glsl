@@ -108,11 +108,11 @@ const float ABBERATION_FACTOR = 0.02;
 
 // Overall glitch strength. 1.0 = as tuned above. Increase to intensify the
 // RGB split, decrease (e.g. 0.5) to calm it further, 0.0 disables it.
-const float GLITCH_INTENSITY = 0.7;
+const float GLITCH_INTENSITY = 0.5;
 
 // Overall glow/shine strength. 1.0 = as tuned above. Increase to make bright
 // text shinier/bloomier, decrease (e.g. 0.5) to tone it down, 0.0 disables it.
-const float GLOW_INTENSITY = 0.7;
+const float GLOW_INTENSITY = 0.5;
 
 // Pixel-grid overlay: darkens a thin line every GRID_SIZE pixels to fake a
 // tiny visible pixel grid, like an old low-res display.
