@@ -1,3 +1,4 @@
+// Original file from: https://github.com/0xhckr/ghostty-shaders
 // Toned-down version of glow-rgbsplit-twitchy.glsl — same chromatic
 // aberration + perceptual glow effect, but with the RGB-split jitter reduced
 // so text stays readable while still keeping a bit of glitch character.
