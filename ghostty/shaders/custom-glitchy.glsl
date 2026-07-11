@@ -112,7 +112,7 @@ const float GLITCH_INTENSITY = 1.0;
 
 // Overall glow/shine strength. 1.0 = as tuned above. Increase to make bright
 // text shinier/bloomier, decrease (e.g. 0.5) to tone it down, 0.0 disables it.
-const float GLOW_INTENSITY = 1.0;
+const float GLOW_INTENSITY = 0.8;
 
 // Pixel-grid overlay: darkens a thin line every GRID_SIZE pixels to fake a
 // tiny visible pixel grid, like an old low-res display.
