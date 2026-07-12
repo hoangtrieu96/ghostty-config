@@ -26,6 +26,37 @@ return {
           vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1a301a" })
           vim.api.nvim_set_hl(0, "CursorLineNr", { fg = fg, bg = "#1a301a", bold = true })
           vim.api.nvim_set_hl(0, "LineNr", { fg = "#4c594c", bg = bg })
+
+          -- which-key popup
+          vim.api.nvim_set_hl(0, "WhichKey", { fg = fg, bold = true })
+          vim.api.nvim_set_hl(0, "WhichKeyGroup", { fg = selection_fg })
+          vim.api.nvim_set_hl(0, "WhichKeyDesc", { fg = fg })
+          vim.api.nvim_set_hl(0, "WhichKeySeparator", { fg = "#4c594c" })
+          vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = bg })
+          vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = fg, bg = bg })
+          vim.api.nvim_set_hl(0, "WhichKeyValue", { fg = "#4c594c" })
+
+          -- :Lazy plugin manager UI
+          vim.api.nvim_set_hl(0, "LazyNormal", { bg = bg, fg = fg })
+          vim.api.nvim_set_hl(0, "LazyH1", { bg = selection_bg, fg = selection_fg, bold = true })
+          vim.api.nvim_set_hl(0, "LazyH2", { fg = fg, bold = true })
+          vim.api.nvim_set_hl(0, "LazyButton", { bg = "#1a301a", fg = fg })
+          vim.api.nvim_set_hl(0, "LazyButtonActive", { bg = selection_bg, fg = selection_fg })
+          vim.api.nvim_set_hl(0, "LazyComment", { fg = "#4c594c" })
+          vim.api.nvim_set_hl(0, "LazySpecial", { fg = fg })
+
+          -- Snacks dashboard
+          vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = fg, bold = true })
+          vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = fg })
+          vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = selection_fg, bold = true })
+          vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = fg })
+          vim.api.nvim_set_hl(0, "SnacksDashboardFooter", { fg = "#4c594c" })
+          vim.api.nvim_set_hl(0, "SnacksDashboardSpecial", { fg = fg })
+          vim.api.nvim_set_hl(0, "SnacksDashboardDir", { fg = "#4c594c" })
+          vim.api.nvim_set_hl(0, "SnacksDashboardFile", { fg = fg })
+          vim.api.nvim_set_hl(0, "SnacksNormal", { bg = bg, fg = fg })
+          vim.api.nvim_set_hl(0, "SnacksTitle", { fg = fg, bg = bg, bold = true })
+          vim.api.nvim_set_hl(0, "FloatTitle", { fg = fg, bg = bg, bold = true })
         end,
       })
     end,
