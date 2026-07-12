@@ -16,8 +16,8 @@ ICON_BRANCH=$'\xef\x90\x98'
 ICON_CONTEXT=$'\xef\x87\x80'
 ICON_CLOCK=$'\xef\x80\x97'
 
-if [ "$REMAINING" -le 10 ]; then BAR_COLOR="$RED"
-elif [ "$REMAINING" -le 30 ]; then BAR_COLOR="$YELLOW"
+if [ "$REMAINING" -le 20 ]; then BAR_COLOR="$RED"
+elif [ "$REMAINING" -le 50 ]; then BAR_COLOR="$YELLOW"
 else BAR_COLOR="$GREEN"; fi
 
 BAR_WIDTH=10
@@ -32,15 +32,16 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
     BRANCH_NAME=$(git branch --show-current 2>/dev/null)
     DIRTY=""
     [ -n "$(git status --porcelain 2>/dev/null)" ] && DIRTY=" ${YELLOW}*${RESET}"
-    [ -n "$BRANCH_NAME" ] && BRANCH=" | ${ICON_BRANCH} ${MAGENTA}${BRANCH_NAME}${RESET}${DIRTY}"
-fi
-
-LINES=""
-if [ "$LINES_ADDED" != "0" ] || [ "$LINES_REMOVED" != "0" ]; then
-    LINES=" | ${GREEN}+${LINES_ADDED}${RESET}/${RED}-${LINES_REMOVED}${RESET}"
+    LINES=""
+    if [ "$LINES_ADDED" != "0" ] || [ "$LINES_REMOVED" != "0" ]; then
+        LINES=" ${GREEN}+${LINES_ADDED}${RESET}/${RED}-${LINES_REMOVED}${RESET}"
+    fi
+    SEP=""
+    [ -n "$LINES" ] && SEP=" |"
+    [ -n "$BRANCH_NAME" ] && BRANCH=" | ${ICON_BRANCH} ${MAGENTA}${BRANCH_NAME}${RESET}${DIRTY}${SEP}${LINES}"
 fi
 
 NOW=$(date "+%a %b %d %Y, %I:%M %p")
 
-echo -e "${CLAUDE_ORANGE}${ICON_MODEL} [$MODEL]${RESET} ${BLUE}${ICON_DIR} ${DIR}${RESET}$BRANCH | ${BAR_COLOR}${ICON_CONTEXT} ${BAR} ${REMAINING}% context${RESET}$LINES"
+echo -e "${CLAUDE_ORANGE}${ICON_MODEL} [$MODEL]${RESET} ${BLUE}${ICON_DIR} ${DIR}${RESET}$BRANCH | ${BAR_COLOR}${ICON_CONTEXT} ${BAR} ${REMAINING}% remaining context${RESET}"
 echo -e "\033[37m${ICON_CLOCK} ${NOW}${RESET}"
