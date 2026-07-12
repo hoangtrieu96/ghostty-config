@@ -57,6 +57,17 @@ return {
           vim.api.nvim_set_hl(0, "SnacksNormal", { bg = bg, fg = fg })
           vim.api.nvim_set_hl(0, "SnacksTitle", { fg = fg, bg = bg, bold = true })
           vim.api.nvim_set_hl(0, "FloatTitle", { fg = fg, bg = bg, bold = true })
+
+          -- Snacks indent guides
+          vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#4c594c" })
+          vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#5fb35f" })
+          vim.api.nvim_set_hl(0, "SnacksIndentChunk", { fg = "#5fb35f" })
+
+          -- Completion popup (blink.cmp inherits these via Pmenu/PmenuSel)
+          vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1a301a", fg = fg })
+          vim.api.nvim_set_hl(0, "PmenuSel", { bg = selection_bg, fg = selection_fg })
+          vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#1a301a" })
+          vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#5fb35f" })
         end,
       })
     end,
