@@ -1,16 +1,16 @@
 return {
-  { "projekt0n/github-nvim-theme" },
+  { "sainnhe/gruvbox-material" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "github_dark_dimmed",
+      colorscheme = "gruvbox-material",
     },
   },
   {
-    "projekt0n/github-nvim-theme",
+    "sainnhe/gruvbox-material",
     config = function()
       vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "github_dark_dimmed",
+        pattern = "gruvbox-material",
         callback = function()
           local bg = "#102010"
           local fg = "#33ff33"
@@ -68,6 +68,12 @@ return {
           vim.api.nvim_set_hl(0, "PmenuSel", { bg = selection_bg, fg = selection_fg })
           vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#1a301a" })
           vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#5fb35f" })
+
+          -- Titles (explorer/picker headers) — gruvbox-material links these
+          -- to an orange "Title" group by default.
+          vim.api.nvim_set_hl(0, "Title", { fg = fg, bold = true })
+          vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = fg, bold = true })
+          vim.api.nvim_set_hl(0, "SnacksPickerPreviewTitle", { fg = fg, bold = true })
         end,
       })
     end,
