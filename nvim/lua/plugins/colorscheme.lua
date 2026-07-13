@@ -3,14 +3,14 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "carbonfox",
+      colorscheme = "nightfox",
     },
   },
   {
     "EdenEast/nightfox.nvim",
     config = function()
       vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "carbonfox",
+        pattern = "nightfox",
         callback = function()
           local bg = "#102010"
           local fg = "#33ff33"
@@ -69,11 +69,28 @@ return {
           vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#1a301a" })
           vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#5fb35f" })
 
-          -- Titles (explorer/picker headers) — gruvbox-material links these
-          -- to an orange "Title" group by default.
+          -- Explorer/picker headers
           vim.api.nvim_set_hl(0, "Title", { fg = fg, bold = true })
           vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = fg, bold = true })
           vim.api.nvim_set_hl(0, "SnacksPickerPreviewTitle", { fg = fg, bold = true })
+
+          -- Snacks leaves SnacksPickerFile unlinked, so plain filenames would
+          -- fall through to Normal and read like git-added files.
+          vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = "#cdcecf" })
+
+          -- Other border groups (mini, dap, notify, ...) link to FloatBorder.
+          vim.api.nvim_set_hl(0, "FloatBorder", { fg = fg, bg = bg })
+
+          -- Themes often hide WinSeparator by setting its fg to the background.
+          vim.api.nvim_set_hl(0, "WinSeparator", { fg = selection_bg, bg = bg })
+
+          -- Noice command-mode popup. The search variants (NoiceCmdlineIconSearch,
+          -- NoiceCmdlinePopupBorderSearch) are deliberately left alone: their
+          -- colour is what distinguishes `/` and `?` from `:`.
+          vim.api.nvim_set_hl(0, "NoiceCmdlineIcon", { fg = fg })
+          vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = fg, bg = bg })
+          vim.api.nvim_set_hl(0, "NoiceCmdlinePopupTitle", { fg = fg, bg = bg, bold = true })
+          vim.api.nvim_set_hl(0, "NoiceConfirmBorder", { fg = fg, bg = bg })
         end,
       })
     end,
