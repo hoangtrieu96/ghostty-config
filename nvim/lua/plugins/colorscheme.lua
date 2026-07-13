@@ -1,16 +1,16 @@
 return {
-  { "sainnhe/gruvbox-material" },
+  { "EdenEast/nightfox.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "carbonfox",
     },
   },
   {
-    "sainnhe/gruvbox-material",
+    "EdenEast/nightfox.nvim",
     config = function()
       vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "gruvbox-material",
+        pattern = "carbonfox",
         callback = function()
           local bg = "#102010"
           local fg = "#33ff33"
