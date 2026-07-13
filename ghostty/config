@@ -8,7 +8,7 @@ fullscreen = true
 macos-non-native-fullscreen = true
 
 # Theme Colors
-theme = GitHub Dark Dimmed
+theme = Nightfox
 
 cursor-color = #33ff33
 cursor-text = #102010

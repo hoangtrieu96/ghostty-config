@@ -8,7 +8,7 @@ REMAINING=$(echo "$input" | jq -r '.context_window.remaining_percentage // (100 
 LINES_ADDED=$(echo "$input" | jq -r '.cost.total_lines_added // 0')
 LINES_REMOVED=$(echo "$input" | jq -r '.cost.total_lines_removed // 0')
 
-CYAN='\033[36m'; MAGENTA='\033[35m'; BLUE='\033[34m'; GREEN='\033[32m'; YELLOW='\033[33m'; RED='\033[31m'; CLAUDE_ORANGE='\033[38;2;217;119;87m'; DARKGREEN='\033[38;2;31;95;31m'; RESET='\033[0m'
+CYAN='\033[38;2;95;242;242m'; MAGENTA='\033[38;2;255;121;198m'; BLUE='\033[38;2;95;179;255m'; GREEN='\033[38;2;51;255;51m'; YELLOW='\033[38;2;255;204;51m'; RED='\033[38;2;255;85;85m'; WHITE='\033[37m'; CLAUDE_ORANGE='\033[38;2;217;119;87m'; DARKGREEN='\033[38;2;31;95;31m'; RESET='\033[0m'
 
 ICON_MODEL=$'\xef\x80\x87'
 ICON_DIR=$'\xef\x81\xbb'
@@ -44,4 +44,4 @@ fi
 NOW=$(date "+%a %b %d %Y, %I:%M %p")
 
 echo -e "${CLAUDE_ORANGE}${ICON_MODEL} [$MODEL]${RESET} ${BLUE}${ICON_DIR} ${DIR}${RESET}$BRANCH | ${BAR_COLOR}${ICON_CONTEXT} ${BAR} ${REMAINING}% remaining context${RESET}"
-echo -e "\033[37m${ICON_CLOCK} ${NOW}${RESET}"
+echo -e "${WHITE}${ICON_CLOCK} ${NOW}${RESET}"
