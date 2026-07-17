@@ -108,11 +108,11 @@ const float ABBERATION_FACTOR = 0.02;
 
 // Overall glitch strength. 1.0 = as tuned above. Increase to intensify the
 // RGB split, decrease (e.g. 0.5) to calm it further, 0.0 disables it.
-const float GLITCH_INTENSITY = 1.0;
+const float GLITCH_INTENSITY = 0.0;
 
 // Overall glow/shine strength. 1.0 = as tuned above. Increase to make bright
 // text shinier/bloomier, decrease (e.g. 0.5) to tone it down, 0.0 disables it.
-const float GLOW_INTENSITY = 0.8;
+const float GLOW_INTENSITY = 0.5;
 
 // Pixel-grid overlay: darkens a thin line every GRID_SIZE pixels to fake a
 // tiny visible pixel grid, like an old low-res display.
@@ -129,7 +129,7 @@ const float FLICKER_INTENSITY = 0.0; // 0.0 = disabled
 // column through R/G/B "stripes", dimming the two non-matching channels.
 // SUBPIXEL_SIZE = pixels per stripe (3.0 = one pixel per R/G/B stripe).
 const float SUBPIXEL_SIZE = 3.0;
-const float SUBPIXEL_INTENSITY = 0.15; // 0.0 = disabled, 1.0 = fully isolated channels
+const float SUBPIXEL_INTENSITY = 0.0; // 0.0 = disabled, default = 0.15, 1.0 = fully isolated channels
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
